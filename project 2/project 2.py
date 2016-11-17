@@ -1,6 +1,6 @@
-from flask import Flask,render_template,request,url_for
+from flask import Flask,render_template,request
 from urllib.parse import unquote
-
+import json
 
 app = Flask(__name__,static_url_path = "/Users/sea_fog/Desktop/hse/2 курс/колд/project 2", static_folder = "/Users/sea_fog/Desktop/hse/2 курс/колд/project 2")
 
@@ -9,15 +9,18 @@ app = Flask(__name__,static_url_path = "/Users/sea_fog/Desktop/hse/2 курс/к
 
 
 #def make_dict(inputs):
-#    for list in inputs:
-#        for word in list:
-#            word = word.lower()
+#    f = open('inputs.txt', 'r',encoding='utf-8')
+#    for line in f:
+
+
 
 #    for list in inputs:
 #        nums = []
 #        for i in list1:
 #            nums.append(list.count(i))
 #    inputstats = dict(zip(list(set(inputs)),list(set(nums))))
+
+#def renew
 
 @app.route('/')
 def main_page():
@@ -31,16 +34,26 @@ def main_page():
         inputs = [anorak,dozhdevik,kosuxa,parka,trench,bushlat]
         f = open('inputs.txt','a',encoding='utf-8')
         for word in inputs:
-                f.write(word + '\n')
+                f.write(word.lower() + '\n')
         f.write('\n')
-    return render_template('main_page.html')
+        f.close()
+    return render_template('main_page.html',)
 
 #@app.route('/stats')
 #def stats_page():
-#    return render_template('stats.html',jsonlink=url_for())
+#    return render_template('stats.html')
 #
-#@app.route('/json')
-#def json_page():
+@app.route('/json')
+def json_page():
+    f = open('inputs.txt', 'r', encoding='utf-8')
+    entries1 = f.read()
+    entries = entries1.split('\n')
+    c = ''
+    for n in entries:
+        if c in entries:
+            entries.remove(c)
+    text = json.dumps(entries)
+    return render_template('json.html',text=text)
 
 
 #@app.route('/search')
