@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title> Результаты опроса </title>
+<table>
+    <tr>
+        <td align="center">
+            <img src = "/Users/sea_fog/Desktop/hse/2 курс/колд/project 2/static/anorak.jpg" width="116" height="150">
+        </td>
+        <td>
+           <img src = "/Users/sea_fog/Desktop/hse/2 курс/колд/project 2/static/dozhdevik.jpg" width="333" height="450">
+        </td>
+        <td>
+
+        </td>
+    </tr>
+
+    <tr>
+
+    </tr>
+</table>
+</head>
+<body>
+
+</body>
+</html>
+
+
+from flask import Flask,render_template,request,url_for
+
+
+app = Flask(__name__,static_url_path = "/Users/sea_fog/Desktop/hse/2 курс/колд/project 2", static_folder = "/Users/sea_fog/Desktop/hse/2 курс/колд/project 2")
+
+
+
+def for_stats():
+
+
+@app.route('/')
+def main_page():
+#    anorak = request.args.getlist('anorak')
+#    dozhdevik = request.args.getlist('dozhdevik')
+#    kosuxa = request.args.getlist('kosuxa')
+#    kurtka = request.args.getlist('kurtka')
+#    trench = request.args.getlist('trench')
+#    bushlat = request.args.getlist('bushlat')
+    return render_template('main_page.html')
+
+
+#@app.route('/stats')
+#def stats_page(anorak,dozhdevik,kosuxa,kurtka,trench,bushlat):
+#    return render_template('stats.html',)
+#
+#@app.route('/json')
+#def json_page():
+
+
+#@app.route('/search')
+#def search_page(results_page):
+#    return render_template('search_page.html',results_link=url_for(results_page())
+
+#@app.route('/results')
+#def results_page():
+#    return
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
