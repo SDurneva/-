@@ -22,7 +22,7 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda m: True)
 def send_len(message):
-    k = len(message.split())
+    k = len(message.text.split())
     if str(k).endswith(str(1)):
         ending = 'о'
     elif str(k).endswith(str(2)) or str(k).endswith(str(3)) or str(k).endswith(str(4)):
